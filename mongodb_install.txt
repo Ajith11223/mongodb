@@ -1,0 +1,12 @@
+2  sudo apt install wget curl gnupg2 software-properties-common apt-transport-https ca-certificates lsb-release
+   53  curl -fsSL https://www.mongodb.org/static/pgp/server-6.0.asc|sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/mongodb-6.gpg
+   54  echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+   55  echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+   56  wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.16_amd64.deb
+   57  sudo dpkg -i ./libssl1.1_1.1.1f-1ubuntu2.16_amd64.deb
+   58  sudo apt update
+   59  sudo apt install mongodb-org
+   60  sudo systemctl enable --now mongod
+   61  mongod --version
+
+
